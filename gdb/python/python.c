@@ -1663,6 +1663,7 @@ message == an error message without a stack will be printed."),
       || gdbpy_initialize_frames () < 0
       || gdbpy_initialize_commands () < 0
       || gdbpy_initialize_symbols () < 0
+      || gdbpy_initialize_minisyms () < 0
       || gdbpy_initialize_symtabs () < 0
       || gdbpy_initialize_blocks () < 0
       || gdbpy_initialize_functions () < 0
@@ -1868,6 +1869,10 @@ Return a Type corresponding to the given name." },
 Return a tuple with the symbol corresponding to the given name (or None) and\n\
 a boolean indicating if name is a field of the current implied argument\n\
 `this' (when the current language is object-oriented)." },
+  { "lookup_symbol_addr", (PyCFunction) gdbpy_lookup_symbol_addr,
+    METH_VARARGS,
+    "lookup_symbol_addr (pc) -> MiniSymbol\n\
+Return a minimal symbol covering the given address." },
   { "lookup_global_symbol", (PyCFunction) gdbpy_lookup_global_symbol,
     METH_VARARGS | METH_KEYWORDS,
     "lookup_global_symbol (name [, domain]) -> symbol\n\

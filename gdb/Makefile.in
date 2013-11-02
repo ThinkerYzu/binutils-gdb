@@ -308,6 +308,7 @@ SUBDIR_PYTHON_OBS = \
 	py-stopevent.o \
 	py-symbol.o \
 	py-symtab.o \
+	py-minisym.o \
 	py-threadevent.o \
 	py-type.o \
 	py-utils.o \
@@ -343,6 +344,7 @@ SUBDIR_PYTHON_SRCS = \
 	python/py-stopevent.c \
 	python/py-symbol.c \
 	python/py-symtab.c \
+	python/py-minisym.c \
 	python/py-threadevent.c \
 	python/py-type.c \
 	python/py-utils.c \
@@ -2253,6 +2255,10 @@ py-symbol.o: $(srcdir)/python/py-symbol.c
 
 py-symtab.o: $(srcdir)/python/py-symtab.c
 	$(COMPILE) $(PYTHON_CFLAGS) $(srcdir)/python/py-symtab.c
+	$(POSTCOMPILE)
+
+py-minisym.o: $(srcdir)/python/py-minisym.c
+	$(COMPILE) $(PYTHON_CFLAGS) $(srcdir)/python/py-minisym.c
 	$(POSTCOMPILE)
 
 py-threadevent.o: $(srcdir)/python/py-threadevent.c

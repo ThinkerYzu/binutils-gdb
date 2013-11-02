@@ -214,6 +214,8 @@ extern PyTypeObject block_object_type
     CPYCHECKER_TYPE_OBJECT_FOR_TYPEDEF("block_object");
 extern PyTypeObject symbol_object_type
     CPYCHECKER_TYPE_OBJECT_FOR_TYPEDEF ("symbol_object");
+extern PyTypeObject msym_object_type
+    CPYCHECKER_TYPE_OBJECT_FOR_TYPEDEF ("msym_object");
 extern PyTypeObject event_object_type
     CPYCHECKER_TYPE_OBJECT_FOR_TYPEDEF ("event_object");
 extern PyTypeObject stop_event_object_type
@@ -284,6 +286,7 @@ PyObject *gdbpy_history (PyObject *self, PyObject *args);
 PyObject *gdbpy_breakpoints (PyObject *, PyObject *);
 PyObject *gdbpy_frame_stop_reason_string (PyObject *, PyObject *);
 PyObject *gdbpy_lookup_symbol (PyObject *self, PyObject *args, PyObject *kw);
+PyObject *gdbpy_lookup_symbol_addr (PyObject *self, PyObject *args);
 PyObject *gdbpy_lookup_global_symbol (PyObject *self, PyObject *args,
 				      PyObject *kw);
 PyObject *gdbpy_newest_frame (PyObject *self, PyObject *args);
@@ -352,6 +355,8 @@ int gdbpy_initialize_symtabs (void)
 int gdbpy_initialize_commands (void)
   CPYCHECKER_NEGATIVE_RESULT_SETS_EXCEPTION;
 int gdbpy_initialize_symbols (void)
+  CPYCHECKER_NEGATIVE_RESULT_SETS_EXCEPTION;
+int gdbpy_initialize_minisyms (void)
   CPYCHECKER_NEGATIVE_RESULT_SETS_EXCEPTION;
 int gdbpy_initialize_symtabs (void)
   CPYCHECKER_NEGATIVE_RESULT_SETS_EXCEPTION;
